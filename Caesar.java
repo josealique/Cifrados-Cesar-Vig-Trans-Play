@@ -1,41 +1,59 @@
+import java.util.Arrays;
+
 public class Caesar {
-
-   private static String abecedarioMay =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-   private static String abecedarioMin = abecedarioMay.toLowerCase();
-
+    private static char[] CaractEsp = {'Á','É','Í','Ó','Ú','À','È','Ì','Ò','Ù','Ñ','Ç',','};
 
     static String cypher(String s, int delta) {
-        StringBuilder cifrado = new StringBuilder();
-        delta = delta % 26;
+        StringBuilder resultado = new StringBuilder();
+        s = s.toUpperCase();
+        delta %= 26;
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
-                if ((s.charAt(i) + delta) > 'z') {
-                    cifrado.append((char) (s.charAt(i) + delta - 26));
+            char check = s.charAt(i); // creamos una variable para guardar cada valor del mensaje
+            if (Character.isLetter(check)) { // comprobamos que no sea un numero, punto, etc
+                char letter = (char) (check + delta); // sumamos el delta a la posicion del caracter
+                if (letter > 'Z') {
+                    if (Arrays.toString(CaractEsp).contains(Character.toString(check))) { // comprobamos que no tiene acentos
+                        resultado.append(check);
+                    } else {
+                        resultado.append((char) (check - (26 - delta))); // si no, se le resta 26 a la posición del carácter y se le resta el delta
+                    }
                 } else {
-                    cifrado.append((char) (s.charAt(i) + delta));
+                    resultado.append((char) (check + delta)); // si la letra no es mayor que Z, sumamos el delta directamente
                 }
-                System.out.println(s.charAt(i));
-            } else if (s.charAt(i) >= 'A' && s.charAt(i) <= 'Z') {
-                if ((s.charAt(i) + delta) > 'Z') {
-                    cifrado.append((char) (s.charAt(i) + delta - 26));
-                } else {
-                    cifrado.append((char) (s.charAt(i) + delta));
-                }
+            } else {
+                resultado.append(check); // en caso de no ser letra se añade directamente la palabra
             }
         }
-        return cifrado.toString();
+        return resultado.toString();
     }
 
     static String decypher(String s, int delta) {
-        return "";
+        StringBuilder resultado = new StringBuilder();
+        s = s.toUpperCase();
+        delta %= 26;
+        for (int i = 0; i < s.length(); i++) {
+            char check = s.charAt(i);
+            if (Character.isLetter(check)) {
+                char letter = (char) (s.charAt(i) - delta); // hacemos lo contrario al cifrar
+                if (letter > 'Z') {
+                    if (Arrays.toString(CaractEsp).contains(Character.toString(check))) {
+                        resultado.append(check);
+                    } else {
+                        resultado.append((char) (check - (26 - delta)));
+                    }
+                } else if (letter < 'A') { // comprobamos si la letra es menor que A
+                    resultado.append((char) (check + (26 - delta))); // le sumamos 26 y le restamos el delta
+                } else {
+                    resultado.append(letter);  // sino, sumamos el delta a la palabra
+                }
+            } else {
+                resultado.append(check); // en caso de no ser letra, añadimos directamente la palabra
+            }
+        }
+        return resultado.toString();
     }
 
     static String magic(String s, String ss) {
         return "";
-    }
-
-    public static void main(String[] args) {
-        String s = "ABC";
-        System.out.println(cypher(s,1));
     }
 }

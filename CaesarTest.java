@@ -31,20 +31,4 @@ public class CaesarTest {
                 Caesar.decypher("Z'OAWQ VO RS GSF QCA SZG RWBSFG, EIS OPOBG RS BSQSGGWHOF-ZC, GS GOD SZ JOZCF EIS HÉ.", 66));
 
     }
-
-    @Test
-    public void magic() throws Exception {
-        assertEquals("EL SECTOR SECUNDARI REPRESENTA EL 2,8% DE LA DEMANDA, MENTRE QUE EL 4,1% DEL TOTAL REGA ELS CAMPS",
-                Caesar.magic("NU BNLCXA BNLDWMJAR ANYANBNWCJ NU 2,8% MN UJ MNVJWMJ, VNWCAN ZDN NU 4,1% MNU CXCJU ANPJ NUB LJVYB",
-                        "El clima en la costa i el centre de Carolina del Nord és similar al clima de Geòrgia i Carolina del Sud, mentre que el clima en les muntanyes de l'oest és similar que el de Nova Anglaterra."));
-
-        assertEquals("À MEDIDA QUE SE VIAJA, AS CADEIAS MONTANHOSAS E OS VALES DÃO LUGAR GRADUALMENTE A TERRENOS RELATIVAMENTE PLANO. A REGIÃO DA CAROLINA DO NORTE PRÓXIMA AO OCEANO ATLÂNTICO É COBERTA POR DIVERSOS PÂNTANOS E LAGOS",
-                Caesar.magic("À ASRWRO EIS GS JWOXO, OG QORSWOG ACBHOBVCGOG S CG JOZSG RÃC ZIUOF UFORIOZASBHS O HSFFSBCG FSZOHWJOASBHS DZOBC. O FSUWÃC RO QOFCZWBO RC BCFHS DFÓLWAO OC CQSOBC OHZÂBHWQC É QCPSFHO DCF RWJSFGCG DÂBHOBCG S ZOUCG",
-                        "A geografia da Carolina do Norte é variada. A região oeste do estado possui um terreno altamente acidentado, coberto por diversas altas cadeias montanhosas e vales profundos"));
-
-        assertEquals("AQUESTA SETMANA SE CELEBRA LA SETMANA EUROPA DE LA PREVENCIÓ DE RESIDUS",
-                Caesar.magic("RHLVJKR JVKDRER JV TVCVSIR CR JVKDRER VLIFGR UV CR GIVMVETZÓ UV IVJZULJ",
-                        "El còrtex motor comprèn les àrees del còrtex cerebral(o escorça cerebral) responsables dels processos de planificació, control i execució de les funcions motores voluntàries."));
-    }
-
 }

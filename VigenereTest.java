@@ -1,5 +1,4 @@
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class VigenereTest {
@@ -37,5 +36,4 @@ public class VigenereTest {
         assertEquals("(NO ESTEM PER A ASSAJOS) I HEM DE PRESTAR (ATENCIO ALS APRENENTS)", Vigenere.decode("(PP QXUWF RFD F BKLCKAX) J ZXO EQ USWLVBD (FUWGEJA FMK TRSQSFFMU)", "balears"));
         assertEquals("EL MINISTRE TAMBE HA RECONEGUT", Vigenere.decode("LA INFWZINJ LOTQA MS FLRKSWUBI", "govern"));
     }
-
 }
